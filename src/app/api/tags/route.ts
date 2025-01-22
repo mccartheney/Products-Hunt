@@ -2,6 +2,7 @@ import { NextApiRequest } from 'next'
 import { NextResponse } from 'next/server'
 
 import getAllData from '../../../../lib/getAllData'
+import getAllTags from '../../../../lib/getAllTags'
  
 const GET = async (
   request: NextApiRequest,
@@ -9,25 +10,8 @@ const GET = async (
   // get all data from api
   const allData = await getAllData()
 
-  // array to save tags
-  let allTags : Array<string> = [] 
-
-  // loop through products
-  allData["products"].forEach((product : any) => {
-    // get a array of products tag
-    const tags = product['tags'].split(', ')
-
-    // loop through array of product tags
-    tags.forEach((tag : string) => {
-      // if that tag is already storaged pass
-      // otherwise storage it
-
-      if (! allTags.includes (tag)) {
-        allTags.push(tag)
-      }
-
-    });
-  });
+  // get all tags
+  const allTags = getAllTags(allData)
 
   // send the tags array
   return NextResponse.json (allTags)
