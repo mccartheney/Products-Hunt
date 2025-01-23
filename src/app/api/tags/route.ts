@@ -14,7 +14,7 @@ const GET = async (
   const allTags = getAllTags(allData)
 
   // send the tags array
-  return NextResponse.json (allTags)
+  return NextResponse.json ([allTags])
 }
 
 export {GET}
