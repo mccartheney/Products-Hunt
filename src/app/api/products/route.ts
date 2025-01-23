@@ -20,7 +20,7 @@ const GET = async (
 
     // get all data and tags
     const allData = await getAllData()
-    const allTags = getAllTags(allData)
+    const allTags = getAllTags(allData, "array")
     
     // check if tag exist, if dont send a error
     if (!allTags.includes(formatedTag)) return NextResponse.json (

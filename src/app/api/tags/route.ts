@@ -11,10 +11,10 @@ const GET = async (
   const allData = await getAllData()
 
   // get all tags
-  const allTags = getAllTags(allData)
+  const allTags = getAllTags(allData, "object")
 
   // send the tags array
-  return NextResponse.json ([allTags])
+  return NextResponse.json (allTags)
 }
 
 export {GET}

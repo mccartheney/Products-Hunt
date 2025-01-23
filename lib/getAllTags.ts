@@ -1,9 +1,15 @@
+import { Tag } from "@/types/types";
+import getProductByTag from "./getProductBytag";
+
+type tagsType = "object" | "array"
 
 const getAllTags = (
-    allData : any
-) : Array<string> => {
+    allData : any,
+    typeOfReturn : tagsType
+) : Array<Tag | string> => {
     // array to save tags
     let allTags : Array<string> = [] 
+    let allObjectTags : Array<Tag> = []
 
     // loop through products
     allData.products.forEach((product : any) => {
@@ -16,13 +22,28 @@ const getAllTags = (
             // otherwise storage it
 
             if (! allTags.includes (tag)) {
-            allTags.push(tag)
+                const productsWithThisTag = getProductByTag(allData.products, tag)
+                
+                // tags infos
+                const tagName = tag
+                const tagPoster = productsWithThisTag[0].images[0].src
+                const tagStock = productsWithThisTag.length
+
+                const tagObject : Tag = {
+                    name : tagName, 
+                    poster : tagPoster, 
+                    stock : tagStock
+                }
+                
+                allTags.push(tag)
+                allObjectTags.push(tagObject)
             }
 
         });
     });
 
-    return allTags
+    if (typeOfReturn === "array") return allTags
+    return allObjectTags
 }
 
 export default getAllTags
