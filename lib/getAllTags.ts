@@ -28,11 +28,13 @@ const getAllTags = (
                 const tagName = tag
                 const tagPoster = productsWithThisTag[Math.floor(Math.random() * productsWithThisTag.length)].images[0].src
                 const tagStock = productsWithThisTag.length
+                const tagImage = productsWithThisTag[0].images[0].src
 
                 const tagObject : Tag = {
                     name : tagName, 
                     poster : tagPoster, 
-                    stock : tagStock
+                    stock : tagStock,
+                    imageUrl : tagImage
                 }
                 
                 allTags.push(tag)

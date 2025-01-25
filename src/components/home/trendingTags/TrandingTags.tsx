@@ -1,5 +1,4 @@
 import { Tag } from "@/types/types";
-import Image from "next/image";
 import { FC } from "react";
 
 // TODO: put this on external file 
@@ -10,47 +9,36 @@ type TrandingTagsProps = {
 const TrandingTags : FC<TrandingTagsProps> = ({tags}) => {
 
     return (
-        <div className="mx-10">
+        <div className="m-10">
             <div>
-                <h2 className="text-4xl font-[family-name:var(--font-oswald)] mb-5">
+                <h2 className="text-6xl font-[family-name:var(--font-oswald)] mb-5">
                 Trending Tags
                 </h2>
             </div>
-    
+
             <div className="flex justify-between overflow-x-scroll">
                 {
-                    tags.map ((tag : Tag, index: number) => {
-                    if (index < 4) {
-                        return (
-                        <a key={tag.name} href={`/${tag.name}`}>
-                                <div className="bg-[#27272a] p-5 m-5 rounded-3xl shadow-md shadow-[#a398981f] ">
-                                <div>
-                                    <Image
-                                        className="rounded-3xl"
+                    tags.map ((tag:Tag, index:number) => {
+                        if (index < 4) {
+                            return (
+                                <figure key={index} className="group rounded-xl m-5 shadow-lg shadow-black overflow-hidden cursor-pointer relative">
+                                    <img
                                         src={tag.poster}
                                         alt={tag.name}
-                                        width={450}
-                                        height={450}
+                                        className="w-full h-auto transition-transform duration-400 group-hover:scale-125"
                                     />
-                                </div>
-
-                                <div>
-                                    <h3 className="my-2 font-[family-name:var(--font-oswald)] text-2xl ">
+                                    <figcaption
+                                        className="absolute inset-0 grid items-end text-transparent font-bold text-2xl p-3 bg-gradient-to-t from-black/60 to-transparent transition-[clip-path] duration-400 group-hover:text-white group-hover:[clip-path:inset(0_0_0_0)] [clip-path:inset(0_100%_0_0)]"
+                                    >
                                         {tag.name}
-                                    </h3>
-                                        <p className="my-2 font-[family-name:var(--font-lato)] ">
-                                        {tag.stock} Products avaliable
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                        )
-                    }
+                                    </figcaption>
+                                </figure>
+                            )
+                        }
                     })
-    
                 }
             </div>
-            </div>
+        </div>
     )
 }
 

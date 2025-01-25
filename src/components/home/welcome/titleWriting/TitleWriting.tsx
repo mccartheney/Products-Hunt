@@ -1,7 +1,6 @@
 import { FC } from "react";
 import TypeIt from "typeit-react";
 
-// TODO: Create a carrosol for the images behind the text
 
 const TitleWriting: FC = () => {
     return (
@@ -9,13 +8,13 @@ const TitleWriting: FC = () => {
             <TypeIt
                 getBeforeInit={(instance) => {
                     instance
-                        .type('<h1 class="text-9xl font-[family-name:var(--font-oswald)]">Hello, Welcome to Products Hunt</h1>')
+                        .type('<h1 class="text-7xl font-[family-name:var(--font-oswald)]">Hello, Welcome to Products Hunt</h1>')
                         .break() 
-                        .type('<h3 class="text-5xl font-[family-name:var(--font-lato)">The best place to find the best products</h3>');
+                        .type('<h3 class="text-2xl font-[family-name:var(--font-lato)">The best place to find the best products</h3>');
                         
                     return instance;
                 }}
-                
+
                 options={{
                     loop: false,
                     waitUntilVisible: true,

@@ -3,13 +3,12 @@
 import { Tag } from "@/types/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Image from 'next/image'
-import TitleWriting from "@/components/home/titleWriting/TitleWriting";
+import TitleWriting from "@/components/home/welcome/titleWriting/TitleWriting";
 import TrandingTags from "@/components/home/trendingTags/TrandingTags";
 import AllTags from "@/components/home/allTags/AllTags";
+import Welcome from "@/components/home/welcome/Welcome";
 
 export default function Home() {
-  // font - [family - name:var(--font - roboto)]
 
   const [tags, setTags] = useState <Tag[]> ([])
   
@@ -22,9 +21,9 @@ export default function Home() {
 
   return (
     <div>
-      {/* welcome text */}
-      <TitleWriting />
-      {/* end of welcome text */}
+      {/* new welcome section */}
+      <Welcome tags={tags}/>
+      {/* end new welcome section */}
       
       {/* trending tags */}
       <TrandingTags tags={tags} />
