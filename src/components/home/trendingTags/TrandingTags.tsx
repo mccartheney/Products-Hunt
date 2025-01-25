@@ -16,12 +16,12 @@ const TrandingTags : FC<TrandingTagsProps> = ({tags}) => {
                 </h2>
             </div>
 
-            <div className="flex justify-between overflow-x-scroll">
+            <div className="flex  justify-between overflow-x-scroll">
                 {
                     tags.map ((tag:Tag, index:number) => {
                         if (index < 4) {
                             return (
-                                <figure key={index} className="group rounded-xl m-5 shadow-lg shadow-black overflow-hidden cursor-pointer relative">
+                                <figure key={index} className="group border border-black rounded-xl m-5 shadow-lg shadow-black overflow-hidden cursor-pointer relative">
                                     <img
                                         src={tag.poster}
                                         alt={tag.name}
