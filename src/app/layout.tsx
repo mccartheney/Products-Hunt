@@ -1,24 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Roboto, Lora, Inter } from 'next/font/google';
+import { Roboto, Lora, Inter, Lato, Oswald } from 'next/font/google';
 
-const roboto = Roboto({
+const oswald = Oswald({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-roboto',
+  variable: '--font-oswald',
 });
 
-const lora = Lora ({
-  subsets : ["latin"],
+const lato = Lato({
+  subsets: ['latin'],
   weight: ['400', '700'],
-  variable : '--font-lora'
-})
+  variable: '--font-lato',
+});
 
-const inter = Inter ({
-  subsets : ['latin'],
-  weight: ['400', '700'],
-  variable : "--font-inter"
-})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -33,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} ${lora.variable} ${inter.variable} antialiased`}
+        className={`${lato.variable} ${oswald.variable} antialiased`}
       >
         {children}
       </body>

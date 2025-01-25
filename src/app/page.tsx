@@ -1,54 +1,40 @@
 'use client'
 
+import { Tag } from "@/types/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
-type Tag = {
-  name: string
-  poster : string
-  stock : number
-}
+import Image from 'next/image'
+import TitleWriting from "@/components/home/titleWriting/TitleWriting";
+import TrandingTags from "@/components/home/trendingTags/TrandingTags";
+import AllTags from "@/components/home/allTags/AllTags";
 
 export default function Home() {
   // font - [family - name:var(--font - roboto)]
 
   const [tags, setTags] = useState <Tag[]> ([])
   
-  
   useEffect (() => {
     axios.get ('/api/tags')
       .then (response => {
-        console.log (response.data)
+        setTags ([...response.data])
       })
   }, [])
 
   return (
     <div>
       {/* welcome text */}
-      <div>
-        <h1>
-          Hello, Welcome to Products Hunt
-        </h1>
-        <h3>
-          The best place to find the best products
-        </h3>
-      </div>
+      <TitleWriting />
       {/* end of welcome text */}
-
-
+      
       {/* trending tags */}
-      <div>
-        <div>
-          <h2>
-            Trending Tags
-          </h2>
-        </div>
-
-        <div>
-
-        </div>
-      </div>
+      <TrandingTags tags={tags} />
       {/* end of trending tags */}
+
+      {/* all tags */}
+      <AllTags tags={tags}/>
+      {/* end of all tags */}
     </div>
+
+    
   );
 }

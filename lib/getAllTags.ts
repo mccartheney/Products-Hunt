@@ -26,7 +26,7 @@ const getAllTags = (
                 
                 // tags infos
                 const tagName = tag
-                const tagPoster = productsWithThisTag[0].images[0].src
+                const tagPoster = productsWithThisTag[Math.floor(Math.random() * productsWithThisTag.length)].images[0].src
                 const tagStock = productsWithThisTag.length
 
                 const tagObject : Tag = {
