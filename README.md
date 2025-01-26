@@ -4,7 +4,7 @@
 [] -> make open cardProduct smooth 
 [] -> only can scroll page when close animation of card product finish
 
-[] -> header
+[x] -> header
 [] -> tag list
 
 [] -> put TrandingTagsProps on external file
@@ -12,5 +12,4 @@
 
 [] -> separate big files in components
 
-
- 
+[] -> comment the code to better compreension

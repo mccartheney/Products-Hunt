@@ -6,8 +6,8 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import Image from "next/image"
 import { useParams } from "next/navigation"
-import { motion } from 'framer-motion'
 import TypeIt from "typeit-react"
+import Header from "@/components/global/header/HeaderComponent"
 
 const tagPage = () => {
     const params = useParams()
@@ -16,26 +16,26 @@ const tagPage = () => {
     const [openProduct, setOpenProduct] = useState<string>()
     const [openProductStock, setOpenProductStock] = useState<number>()
     const [openProductPrice, setOpenProductPrice] = useState<number>()
-    const [initialImagePosition, setInitialImagePosition] = useState ({
-        posX:0,
-        posY:0
+    const [initialImagePosition, setInitialImagePosition] = useState({
+        posX: 0,
+        posY: 0
     })
 
-    const handleOpenModel = (productName : string) => {
-        const productImage : HTMLElement = document.querySelector(`#${productName}`)!
+    const handleOpenModel = (productName: string) => {
+        const productImage: HTMLElement = document.querySelector(`#${productName}`)!
         const imagePosition = productImage.getBoundingClientRect()
 
         productImage.style.top = `${imagePosition.top}px`;
         productImage.style.left = `${imagePosition.left}px`;
-        
-        
+
+
         setInitialImagePosition({
-            posX : imagePosition.left,
+            posX: imagePosition.left,
             posY: imagePosition.top
         })
-        
+
         productImage.classList.add("imageOpen")
-        
+
         document.querySelector(".productModal")?.classList.add("openModal")
         document.querySelector(".productModal")?.classList.remove("closeModal")
         document.querySelector("body")!.style.overflow = "hidden"
@@ -49,8 +49,8 @@ const tagPage = () => {
                 products.forEach(product => {
                     if (productName == product.handle) {
                         setOpenProductPrice(Number(product.variants[0].price))
-        
-                        product.variants.forEach((variant : any) => {
+
+                        product.variants.forEach((variant: any) => {
                             stockQuantity += Number(variant.inventory_quantity)
                         });
                     }
@@ -59,29 +59,29 @@ const tagPage = () => {
         });
 
         setOpenProductStock(stockQuantity)
-        setOpenProduct (productName)
+        setOpenProduct(productName)
     }
 
     const handleCloseModel = () => {
         const productModal: HTMLElement = document.querySelector(".productModal")!
-        productModal.classList.add ("closeModal")
+        productModal.classList.add("closeModal")
 
-        var root : HTMLElement = document.querySelector(':root')!;
+        var root: HTMLElement = document.querySelector(':root')!;
         root!.style.setProperty('--image-top-inicial', `${initialImagePosition.posY}px`);
         root!.style.setProperty('--image-left-inicial', `${initialImagePosition.posX}px`);
 
-        const productImage : HTMLElement= document.querySelector(`#${openProduct}`)!
-        
-        
-        setTimeout (() => {
+        const productImage: HTMLElement = document.querySelector(`#${openProduct}`)!
+
+
+        setTimeout(() => {
             productImage.classList.remove("imageOpen")
             productImage.classList.add("imageClosed")
 
-            setTimeout (() => {
+            setTimeout(() => {
                 productImage.classList.remove("imageClosed")
 
-            },500)
-        },800)
+            }, 500)
+        }, 800)
         document.querySelector("body")!.style.overflow = "auto"
     }
 
@@ -96,11 +96,10 @@ const tagPage = () => {
     return (
         <div className="">
 
-            {/* //TODO : make a header to add here */}
-            {/* header */}
+            <Header />
 
             {/* title */}
-            <div className="m-10">
+            <div className="m-20">
                 <h1 className="text-9xl font-[family-name:var(--font-oswald)]">
                     <TypeIt>
                         {tag}
@@ -123,12 +122,12 @@ const tagPage = () => {
                         const productName = product.handle
                         const productTitle = product.title
 
-                        let stockQuantity : number = 0
+                        let stockQuantity: number = 0
 
-                        product.variants.forEach((variant : any) => {
+                        product.variants.forEach((variant: any) => {
                             stockQuantity += Number(variant.inventory_quantity)
                         });
-                        
+
 
                         return (
                             <div key={index} className="mx-32">
@@ -157,7 +156,7 @@ const tagPage = () => {
                                         {stockQuantity} items avaliable
                                     </p>
                                     {/* see more about it */}
-                                    <button onClick={() => { handleOpenModel(productName)}} className="my-2 border py-2 px-4 border-black">
+                                    <button onClick={() => { handleOpenModel(productName) }} className="my-2 border py-2 px-4 border-black">
                                         see more →
                                     </button>
                                 </div>
@@ -169,12 +168,12 @@ const tagPage = () => {
             {/* end of Products List */}
 
             {/* modal */}
-            <div className="productModal closeModal relative ">
+            <div className="productModal closeModal relative">
                 {/* modal title */}
                 <div className="ml-[550px] mt-20">
                     <h1 className="text-9xl font-[family-name:var(--font-oswald)]">
                         <TypeIt options={{
-                            speed:200,
+                            speed: 200,
                             startDelay: 3000,
                         }}>
                             {tag}
@@ -191,8 +190,8 @@ const tagPage = () => {
                         stock of all variants : {openProductStock}
                     </p>
                 </div>
-                    
-                <button onClick={handleCloseModel} className="closeButton absolute top-10 right-10 border py-1 px-2">
+
+                <button onClick={handleCloseModel} className="closeButton absolute top-20 right-10 border py-1 px-2">
                     close
                 </button>
             </div>
