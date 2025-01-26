@@ -1,10 +1,5 @@
-import { Tag } from "@/types/types";
+import { Tag, TrandingTagsProps } from "@/types/types";
 import { FC } from "react";
-
-// TODO: put this on external file 
-type TrandingTagsProps = {
-    tags : Tag[]
-}
 
 const TrandingTags : FC<TrandingTagsProps> = ({tags}) => {
 

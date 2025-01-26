@@ -1,11 +1,7 @@
-import { Tag } from "@/types/types";
+import { Tag, TrandingTagsProps } from "@/types/types";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 import { FC } from "react";
-
-// TODO: put this on external file 
-type TrandingTagsProps = {
-    tags: Tag[]
-}
 
 const AllTags : FC<TrandingTagsProps> = ({tags}) => {
 

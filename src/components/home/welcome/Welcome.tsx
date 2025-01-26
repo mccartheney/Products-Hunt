@@ -1,17 +1,7 @@
 import TitleWriting from "./titleWriting/TitleWriting"
 import LogoWall from "./logoWall/LogoWall";
-import { Tag } from "@/types/types";
+import { LogoImagesType, Tag, TrandingTagsProps } from "@/types/types";
 import { FC } from "react";
-
-// TODO: put this on external file 
-type TrandingTagsProps = {
-    tags : Tag[]
-}
-
-type LogoImagesType = {
-    imgUrl : string,
-    altText:string
-}
 
 const Welcome : FC<TrandingTagsProps>= ({tags}) => {
     let logoImgs : LogoImagesType[] = []

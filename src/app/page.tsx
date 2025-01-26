@@ -7,6 +7,7 @@ import TrandingTags from "@/components/home/trendingTags/TrandingTags";
 import AllTags from "@/components/home/allTags/AllTags";
 import Welcome from "@/components/home/welcome/Welcome";
 import Header from "@/components/global/header/HeaderComponent";
+import TagList from "@/components/global/tagList/TagListComponent";
 
 export default function Home() {
 
@@ -24,6 +25,7 @@ export default function Home() {
       <Header />
       <Welcome tags={tags} />
       <TrandingTags tags={tags} />
+      <TagList tags={tags} />
       <AllTags tags={tags} />
     </div>
 
