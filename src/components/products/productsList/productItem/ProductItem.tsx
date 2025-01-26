@@ -10,7 +10,7 @@ const ProductItems: FC<productsItemProps> = ({ products, handleOpenModel }) => {
                 products.map((product, index) => {
 
                     // products infos
-                    const productImage : string = product.image.src
+                    const productImage: string = product.image.src
                     const productName: string = product.handle
                     const productTitle: string = product.title
                     let stockQuantity: number = 0

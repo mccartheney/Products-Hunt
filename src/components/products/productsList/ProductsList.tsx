@@ -1,7 +1,5 @@
 import { initialPosition, productsListProps } from "@/types/types"
-import Image from "next/image"
 import { FC, useState } from "react"
-import TypeIt from "typeit-react"
 import ProductItems from "./productItem/ProductItem"
 import ProductModal from "./productModal/productModal"
 
@@ -10,7 +8,7 @@ const ProductsList :FC<productsListProps> = ({products,tagName}) => {
     // states to manage the modal
     const [openProduct, setOpenProduct] = useState<string>("")
     const [openProductStock, setOpenProductStock] = useState<number>(0)
-    const [openProductPrice, setOpenProductPrice] = useState<number>(0)
+    const [variantsQuatity, setVariantQuatity] = useState<number>(0)
     const [initialImagePosition, setInitialImagePosition] = useState<initialPosition>({
         posX: 0,
         posY: 0
@@ -72,29 +70,22 @@ const ProductsList :FC<productsListProps> = ({products,tagName}) => {
 
         products.forEach(product => {
             if (productName == product.handle) {
-                setOpenProductPrice(Number(product.variants[0].price))
-
-                products.forEach(product => {
-                    if (productName == product.handle) {
-                        setOpenProductPrice(Number(product.variants[0].price))
-
-                        product.variants.forEach((variant: any) => {
-                            stockQuantity += Number(variant.inventory_quantity)
-                        });
-                    }
+                setVariantQuatity(Number(product.variants.length))
+                product.variants.forEach((variant : any) => {
+                    stockQuantity += variant.inventory_quantity
                 });
             }
         });
-
 
         setOpenProductStock(stockQuantity)
         setOpenProduct(productName)
     }
 
+
     return (
         <div className="flex flex-wrap w-screen justify-center items-center">
             <ProductItems products={products} handleOpenModel={handleOpenModel}/>
-            <ProductModal tagName={tagName} openProductPrice={openProductPrice} openProductStock={openProductStock} handleCloseModel={handleCloseModel}/>
+            <ProductModal tagName={tagName} variantsQuatity={variantsQuatity} productName={openProduct} openProductStock={openProductStock} handleCloseModel={handleCloseModel} /> 
         </div>
     )
 

@@ -2,9 +2,7 @@ import { productModalProps } from "@/types/types"
 import { FC } from "react"
 import TypeIt from "typeit-react"
 
-const ProductModal : FC<productModalProps> = ({ tagName, openProductPrice, openProductStock, handleCloseModel}) => {
-    
-
+const ProductModal: FC<productModalProps> = ({ tagName, productName, variantsQuatity,openProductStock, handleCloseModel}) => {
     return (
         <div className="productModal closeModal relative">
             <div className="ml-[550px] mt-20">
@@ -18,12 +16,17 @@ const ProductModal : FC<productModalProps> = ({ tagName, openProductPrice, openP
                 </h1>
             </div>
             <div>
-                <h3 className="ml-[550px] mt-10 font-[family-name:var(--font-lato)] font-bold">
-                    Price : {openProductPrice}$
+                <h3 className="ml-[550px] mt-5 text-2xl font-[family-name:var(--font-lato)] font-bold">
+                    {productName.replaceAll("-", " ")}
                 </h3>
-
+                <p className="ml-[550px] mt-5 font-[family-name:var(--font-lato)] font-bold">
+                    Stock of all variants : {openProductStock} items
+                </p>
                 <p className="ml-[550px] font-[family-name:var(--font-lato)] font-bold">
-                    stock of all variants : {openProductStock}
+                    Number of variants : {variantsQuatity}
+                </p>
+                <p className="ml-[550px] font-[family-name:var(--font-lato)] font-bold">
+                    tags : {productName.replaceAll("-", ",")}
                 </p>
             </div>
             

@@ -36,7 +36,8 @@ export type productsItemProps = {
 
 export type productModalProps = {
     tagName : string
-    openProductPrice : number
+    productName: string
+    variantsQuatity: number
     openProductStock : number
     handleCloseModel : () => void
 }

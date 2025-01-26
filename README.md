@@ -8,10 +8,9 @@
 [x] -> tag list
 
 [x] -> put TrandingTagsProps on external file
-[] -> put a icon on 'see more' product button
 
 [x] -> separate big files in components
 
-[] -> comment the code to better compreension
+[x] -> comment the code to better compreension
 
-[] -> fix bugs to product modal show the name of product, instead the tag 
+[x] -> fix bugs to product modal show the name of product, instead the tag 
