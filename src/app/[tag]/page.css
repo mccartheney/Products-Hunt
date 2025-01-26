@@ -1,0 +1,119 @@
+
+@keyframes changePosition {
+    0% {
+    }
+    
+    100% {
+        top: 0px;
+        left: 0px;
+        z-index: 4;
+    }
+}
+
+@keyframes returnPosition {
+    0% {
+        top: 0px;
+        left: 0px;
+    }
+    
+    100% {
+        top: var(--image-top-inicial);
+        left: var(--image-left-inicial);
+        z-index: 4;
+    }
+}
+
+.imageOpen {
+    position: fixed;
+    transition: 1s;
+    animation: changePosition .5s forwards;
+}
+
+.imageClosed {
+    position: fixed;
+    animation: returnPosition .5s forwards;
+}
+
+
+
+@keyframes openModal {
+    30% {
+        top: 300px;
+        left: 300px;
+        width: 0px;
+        height: 0px;
+        border-radius: 50px;
+    }
+    100% {
+        border-radius: 0%;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@keyframes closeModal {
+    0% {
+        border-radius: 0%;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+    }
+    80% {
+        top: 300px;
+        left: 300px;
+        width: 0px;
+        height: 0px;
+        border-radius: 50px;
+    }
+}
+
+
+.productModal {
+    position: fixed;
+    top: 300px;
+    left: 300px;
+    width: 0px;
+    height: 0px;
+    background-color: white;
+}
+
+
+
+@keyframes appearItems {
+    0%{
+        display: none;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    50% {
+        display:flex;
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+}
+
+.openModal {
+    animation: openModal 1s forwards;
+}
+
+.openModal > * {
+    animation: appearItems 2s forwards;
+}
+
+.closeModal {
+    animation: closeModal 1s forwards;
+}
+
+.closeModal > *{
+    display: none;
+}
