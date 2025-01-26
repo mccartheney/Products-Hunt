@@ -12,12 +12,15 @@ import ProductTitle from "@/components/products/productsTitle/ProductTitle"
 import ProductsList from "@/components/products/productsList/ProductsList"
 
 const tagPage = () => {
+    // get tags through params
     const params = useParams()
     const { tag } = params
+    // states to manange tags and products 
     const [tags, setTags] = useState <Tag[]>()
     const [products, setProducts] = useState<any[]>([])
 
 
+    // use effect to get products and all tags
     useEffect(() => {
         axios.get(`/api/products?tag=${tag}`)
             .then(response => {
@@ -30,7 +33,8 @@ const tagPage = () => {
             })
     }, [])
 
-    if (!tags) {
+    // if tags or products isnt loaded show loading Page
+    if (!tags || !products) {
         return (
             <h1>
                 loading

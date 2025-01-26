@@ -3,11 +3,13 @@ import { useParams } from "next/navigation"
 import { FC } from "react"
 
 const TagList : FC<TrandingTagsProps> = ({tags}) => {
+    // get tag from url
     const params = useParams()
     const { tag } = params
     return (
         <div className="flex overflow-x-scroll p-2 border border-y border-black">
             {
+                // loop throught tags
                 tags.map ((tagItem : Tag, index) => {
                     const tagUrl = `/${tagItem.name}`
                     let actualTagClasses = ""

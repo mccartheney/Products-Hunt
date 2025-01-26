@@ -11,6 +11,7 @@ import TagList from "@/components/global/tagList/TagListComponent";
 
 export default function Home() {
 
+  // define tags statement and get tags from api
   const [tags, setTags] = useState<Tag[]>([])
 
   useEffect(() => {

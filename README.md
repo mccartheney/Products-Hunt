@@ -10,7 +10,7 @@
 [x] -> put TrandingTagsProps on external file
 [] -> put a icon on 'see more' product button
 
-[] -> separate big files in components
+[x] -> separate big files in components
 
 [] -> comment the code to better compreension
 

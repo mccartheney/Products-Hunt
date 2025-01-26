@@ -6,17 +6,19 @@ const ProductItems: FC<productsItemProps> = ({ products, handleOpenModel }) => {
     return (
         <>
             {
+                // loop through products
                 products.map((product, index) => {
-                    const productImage = product.image.src
-                    const productName = product.handle
-                    const productTitle = product.title
 
+                    // products infos
+                    const productImage : string = product.image.src
+                    const productName: string = product.handle
+                    const productTitle: string = product.title
                     let stockQuantity: number = 0
 
+                    // get avaliable stock
                     product.variants.forEach((variant: any) => {
                         stockQuantity += Number(variant.inventory_quantity)
                     });
-
 
                     return (
                         <div key={index} className="mx-32">
