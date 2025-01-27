@@ -1,6 +1,6 @@
 import TitleWriting from "./titleWriting/TitleWriting"
 import LogoWall from "./logoWall/LogoWall";
-import { LogoImagesType, Tag, TrandingTagsProps } from "@/types/types";
+import { LogoImagesType, TrandingTagsProps } from "@/types/types";
 import { FC } from "react";
 
 const Welcome : FC<TrandingTagsProps>= ({tags}) => {

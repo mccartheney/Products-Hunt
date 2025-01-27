@@ -1,6 +1,5 @@
 import { Tag, TrandingTagsProps } from "@/types/types";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import { FC } from "react";
 
 const AllTags : FC<TrandingTagsProps> = ({tags}) => {
@@ -10,7 +9,7 @@ const AllTags : FC<TrandingTagsProps> = ({tags}) => {
             {
                 tags.map((tag: Tag, index: number) => {
                     return (
-                        <a key={tag.name} href={`/${tag.name}`} className="">
+                        <a key={index} href={`/${tag.name}`} className="">
                             <div className="product flex flex-col p-5 m-10 rounded-3xl ">
                                 <div >
                                     <Image

@@ -1,6 +1,5 @@
 'use client'
 
-
 import "./page.css"
 import { useEffect, useState } from "react"
 import axios from "axios"
@@ -36,9 +35,11 @@ const tagPage = () => {
     // if tags or products isnt loaded show loading Page
     if (!tags || !products) {
         return (
-            <h1>
-                loading
-            </h1>    
+            <div className="flex justify-center items-center h-screen w-screen">
+                <h1 className="text-5xl font-bold">
+                    loading
+                </h1>    
+            </div>
         )
     }
 
