@@ -16,11 +16,11 @@ const Welcome : FC<TrandingTagsProps>= ({tags}) => {
     });
 
     return (
-        <div className="flex h-screen w-screen ">
-            <div className="flex justify-center items-center h-full w-1/2">
+        <div className="flex flex-col md:flex-row h-screen w-screen ">
+            <div className="flex justify-center items-center h-full w-full md:w-1/2">
                 <TitleWriting/>
             </div>
-            <div className="flex justify-center items-center h-full w-1/2">
+            <div className="flex justify-center items-center h-full w-full md:w-1/2">
                 <LogoWall
                     items={logoImgs}
                     direction='vertical'

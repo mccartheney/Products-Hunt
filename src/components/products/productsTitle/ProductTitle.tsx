@@ -5,7 +5,7 @@ import TypeIt from "typeit-react"
 const ProductTitle : FC<ProductTitleProps> = ({tagName}) => {
     return (
         <div className="m-20 mb-10">
-            <h1 className="text-9xl font-[family-name:var(--font-oswald)]">
+            <h1 className="text-5xl lg:text-9xl font-[family-name:var(--font-oswald)]">
                 <TypeIt>
                     {tagName}
                 </TypeIt>

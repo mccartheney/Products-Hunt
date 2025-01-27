@@ -6,17 +6,17 @@ const TrandingTags : FC<TrandingTagsProps> = ({tags}) => {
     return (
         <div className="m-10">
             <div>
-                <h2 className="text-6xl font-[family-name:var(--font-oswald)] mb-5">
+                <h2 className="text-4xl lg:mt-0 font-[family-name:var(--font-oswald)] mb-5 md:text-6xl mt-[400px]">
                 Trending Tags
                 </h2>
             </div>
 
-            <div className="flex  justify-between overflow-x-scroll">
+            <div className="flex flex-wrap justify-between overflow-x-scroll">
                 {
                     tags.map ((tag:Tag, index:number) => {
                         if (index < 4) {
                             return (
-                                <figure key={index} className="group border border-black rounded-xl m-5 shadow-lg shadow-black overflow-hidden cursor-pointer relative">
+                                <figure key={index} className="group border border-black rounded-xl m-5 shadow-lg shadow-black overflow-hidden cursor-pointer relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
                                     <img
                                         src={tag.poster}
                                         alt={tag.name}

@@ -15,15 +15,14 @@ const ProductItems: FC<productsItemProps> = ({ products, handleOpenModel }) => {
                     const productTitle: string = product.title
                     let stockQuantity: number = 0
 
-                    // get avaliable stock
+                    // get available stock
                     product.variants.forEach((variant: any) => {
                         stockQuantity += Number(variant.inventory_quantity)
                     });
 
                     return (
-                        <div key={index} className="mx-32">
+                        <div key={index} className="mx-5 my-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
 
-                            {/* image */}
                             <div className="w-[500px] h-[500px]">
                                 <Image
                                     src={productImage}
@@ -31,22 +30,17 @@ const ProductItems: FC<productsItemProps> = ({ products, handleOpenModel }) => {
                                     height={500}
                                     alt={productName}
                                     id={productName}
-                                    className="image"
                                 />
                             </div>
 
-                            {/* text content */}
                             <div>
-                                {/* name */}
                                 <h2 className="text-2xl font-bold my-2">
                                     {productTitle}
                                 </h2>
 
-                                {/* stock */}
                                 <p>
-                                    {stockQuantity} items avaliable
+                                    {stockQuantity} items available
                                 </p>
-                                {/* see more about it */}
                                 <button onClick={() => { handleOpenModel(productName) }} className="my-2 border py-2 px-4 border-black">
                                     see more →
                                 </button>
