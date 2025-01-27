@@ -16,7 +16,7 @@ const TrandingTags : FC<TrandingTagsProps> = ({tags}) => {
                     tags.map ((tag:Tag, index:number) => {
                         if (index < 4) {
                             return (
-                                <figure key={index} className="group border border-black rounded-xl m-5 shadow-lg shadow-black overflow-hidden cursor-pointer relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                                <figure key={index} className="group border border-black m-4 rounded-xl m shadow-lg shadow-black overflow-hidden cursor-pointer relative w-full sm:w-1/2 md:w-1/4 lg:w-[300px]">
                                     <img
                                         src={tag.poster}
                                         alt={tag.name}

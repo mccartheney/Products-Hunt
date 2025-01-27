@@ -21,7 +21,7 @@ const ProductItems: FC<productsItemProps> = ({ products, handleOpenModel }) => {
                     });
 
                     return (
-                        <div key={index} className="mx-5 my-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+                        <div key={index} className="mx-5 my-5 w-full sm:w-1/2 md:w-1/3 lg:w-[500px] p-2">
 
                             <div className="w-[500px] h-[500px]">
                                 <Image
